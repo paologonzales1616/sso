@@ -5,6 +5,7 @@ import (
 	"sso/utils"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/healthcheck"
 	"github.com/gofiber/template/django/v3"
 )
 
@@ -19,5 +20,7 @@ func RunServer() error {
 
 	Middlewares(app)
 
-	return app.Listen(fmt.Sprintf(":%s", port))
+	app.Use(healthcheck.New())
+
+	return app.Listen(fmt.Sprintf("127.0.0.1:%s", port))
 }
