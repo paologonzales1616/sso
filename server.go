@@ -17,5 +17,7 @@ func RunServer() error {
 		Views: engine,
 	})
 
+	Middlewares(app)
+
 	return app.Listen(fmt.Sprintf(":%s", port))
 }
