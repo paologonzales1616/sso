@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sso/routes"
 	"sso/utils"
 
 	"github.com/gofiber/fiber/v2"
@@ -12,7 +13,7 @@ import (
 func RunServer() error {
 	port := utils.Env.Port
 
-	engine := django.New("./templates", ".html")
+	engine := django.New("./views", ".html")
 
 	app := fiber.New(fiber.Config{
 		Views: engine,
@@ -21,6 +22,8 @@ func RunServer() error {
 	Middlewares(app)
 
 	app.Use(healthcheck.New())
+
+	routes.Routes(app)
 
 	return app.Listen(fmt.Sprintf("127.0.0.1:%s", port))
 }
