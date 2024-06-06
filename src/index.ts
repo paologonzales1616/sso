@@ -5,4 +5,15 @@ dotenv.config();
 
 const PORT = process.env["PORT"] || 3000;
 
-server.listen(PORT, () => console.log(`Server running at localhost:${PORT}`));
+const start = () => {
+  try {
+    server.listen(PORT, () =>
+      console.log(`Server running at localhost:${PORT}`)
+    );
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
+};
+
+void start();
