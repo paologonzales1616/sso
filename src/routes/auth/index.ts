@@ -1,9 +1,8 @@
+import { doLogin, loginPage } from "controllers/auth";
 import { Router } from "express";
 
 const authRouter = Router();
 
-authRouter
-  .get("/login", (req, res) => res.render('pages/login'))
-  .post("/login", (req, res) => res.status(200).end());
+authRouter.route("/login").get(loginPage).post(doLogin);
 
 export default authRouter;
