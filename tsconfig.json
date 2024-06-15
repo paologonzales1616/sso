@@ -11,6 +11,13 @@
     "strict": true,
     "lib": ["es2020"],
     "baseUrl": "./src",
+    "paths": {
+      "@controllers/*": ["./controllers/*"],
+      "@fixtures/*": ["./fixtures/*"],
+      "@middlwares/*": ["./middlwares/*"],
+      "@routes/*": ["./routes/*"],
+      "@services/*": ["./services/*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -18,6 +25,6 @@
     "moduleResolution": "Node",
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "scripts"],
   "exclude": ["node_modules"]
 }
