@@ -7,7 +7,14 @@
       "dynamicImport": true
     },
     "target": "es2020",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "@controllers/*": ["./controllers/*"],
+      "@fixtures/*": ["./fixtures/*"],
+      "@middlwares/*": ["./middlwares/*"],
+      "@routes/*": ["./routes/*"],
+      "@services/*": ["./services/*"]
+    }
   },
   "module": {
     "type": "commonjs"
